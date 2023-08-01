@@ -1,0 +1,16 @@
+# docker image for ubuntu 20
+version: "3"
+services:
+  ubuntu-ssh:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USERNAME: "test"
+        PASSWORD: "1234"
+    container_name: ubuntu-ssh
+    image: ubuntu-ssh
+    restart: on-failure
+    ports:
+      - "2222:22"
+      - "8880:80"
